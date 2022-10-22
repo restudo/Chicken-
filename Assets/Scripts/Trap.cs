@@ -8,17 +8,21 @@ public class Trap : MonoBehaviour
     float timer;
     public float moveSpeed;
 
-    void Start(){
+    void Start()
+    {
         timer = timeUntilDestory;
     }
 
-    void Update(){
+    void Update()
+    {
         transform.position = Vector2.MoveTowards(transform.position, Vector2.left * 200f, Time.deltaTime * moveSpeed);
-        if(timeUntilDestory <= 0){
+        if (timeUntilDestory <= 0)
+        {
             Destroy(gameObject);
             timeUntilDestory = timer;
         }
-        else{
+        else
+        {
             timeUntilDestory -= Time.deltaTime;
         }
     }

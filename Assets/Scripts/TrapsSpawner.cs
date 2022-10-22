@@ -6,7 +6,11 @@ public class TrapsSpawner : MonoBehaviour
 {
     public GameObject[] Traps;
     public float timer;
-    float time = 0;
+    float time;
+
+    void Start(){
+        time = 0;
+    }
 
     void Update(){
         int trapsNum = Random.Range(0, 9);

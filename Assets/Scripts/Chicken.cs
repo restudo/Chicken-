@@ -13,6 +13,7 @@ public class Chicken : MonoBehaviour
     public float jumpForce;
     public TextMeshProUGUI scoreTxt;
     public GameManager gameManager;
+    public GameObject deathVFX;
 
     void Start()
     {
@@ -36,7 +37,11 @@ public class Chicken : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other){
-        isDead = true;
+        if(!isDead){
+            Instantiate(deathVFX, transform.position, Quaternion.identity);
+            anim.SetTrigger("Hit");
+            isDead = true;
+        }
         gameManager.GameOver();
     }
 }
